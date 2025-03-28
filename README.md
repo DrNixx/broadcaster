@@ -1,4 +1,4 @@
-# Lichess Broadcaster
+# Arena Broadcaster
 
 [![Build](https://github.com/lichess-org/broadcaster/actions/workflows/tauri-publish.yml/badge.svg)](https://github.com/lichess-org/broadcaster/actions/workflows/tauri-publish.yml)
 [![CI](https://github.com/lichess-org/broadcaster/actions/workflows/ci.yml/badge.svg)](https://github.com/lichess-org/broadcaster/actions/workflows/ci.yml)

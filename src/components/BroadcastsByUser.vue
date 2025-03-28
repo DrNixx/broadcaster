@@ -13,7 +13,7 @@ import { useUserStore } from '../stores/user';
 const settings = useSettingsStore();
 const user = useUserStore();
 
-const username = ref<string>(router.currentRoute.value.params.username as string);
+const userid = ref<string>(router.currentRoute.value.params.userid as string);
 const pageNum = ref<number>(parseInt(router.currentRoute.value.params.pageNum as string));
 
 const isLoading = ref<boolean>(true);
@@ -27,7 +27,7 @@ function refresh() {
   broadcasts.value = undefined;
   isLoading.value = true;
 
-  lichessFetch(`/api/broadcast/by/${username.value}`, {
+  lichessFetch(`/api/broadcast/by/${userid.value}`, {
     page: pageNum.value.toString(),
   })
     .then(response => response.json() as Promise<LichessPaginatedBroadcasts>)
@@ -42,15 +42,15 @@ if (!pageHasBroadcasts.value) {
 }
 
 onBeforeRouteUpdate((to, _from) => {
-  username.value = to.params.username as string;
+  userid.value = to.params.userid as string;
   pageNum.value = parseInt(to.params.pageNum as string);
   refresh();
 });
 
 const viewOnLichessUrl = computed<string>(() => {
-  return username.value === 'broadcaster'
+  return userid.value === 'broadcaster'
     ? `${settings.lichessUrl}/broadcast`
-    : `${settings.lichessUrl}/broadcast/by/${username.value}`;
+    : `${settings.lichessUrl}/broadcast/by/${userid.value}`;
 });
 </script>
 
@@ -108,10 +108,10 @@ const viewOnLichessUrl = computed<string>(() => {
 
     <h3 class="mt-2 text-sm font-semibold text-gray-200">No broadcasts</h3>
     <p class="mt-1 text-sm text-gray-300">
-      No broadcasts found for <span>{{ username }}</span>
+      No broadcasts found for <span>{{ userid }}</span>
     </p>
 
-    <template v-if="user.is(username)">
+    <template v-if="user.is(userid)">
       <p class="mt-1 text-sm text-gray-300">Get started by creating a new broadcast.</p>
       <div class="mt-6">
         <button

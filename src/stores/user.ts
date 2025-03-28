@@ -8,6 +8,7 @@ export const useUserStore = defineStore(
   () => {
     const accessToken = ref<AccessTokenResponse | null>(null);
     const expiresAt = ref<number | null>(null);
+    const userid = ref<string | null>(null);
     const username = ref<string | null>(null);
 
     function setAccessToken(token: AccessTokenResponse) {
@@ -21,6 +22,7 @@ export const useUserStore = defineStore(
       lichessFetch('/api/account')
         .then(response => response.json() as Promise<LichessUser>)
         .then(data => {
+          userid.value = data.id;
           username.value = data.username;
         });
     }
@@ -53,16 +55,18 @@ export const useUserStore = defineStore(
 
       accessToken.value = null;
       expiresAt.value = null;
+      userid.value = null;
       username.value = null;
     }
 
     function is(u: string): boolean {
-      return u.toLowerCase() === username.value?.toLowerCase();
+      return u === userid.value;
     }
 
     return {
       accessToken,
       expiresAt,
+      userid,
       username,
       validateToken,
       setAccessToken,

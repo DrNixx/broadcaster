@@ -8,27 +8,20 @@
   "bundle": {
     "active": true,
     "targets": "all",
-    "icon": ["icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
-    "createUpdaterArtifacts": "v1Compatible"
+    "icon": ["icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
   },
-  "productName": "Lichess Broadcaster",
-  "mainBinaryName": "Lichess Broadcaster",
+  "productName": "Arena Broadcaster",
+  "mainBinaryName": "Arena Broadcaster",
   "version": "../package.json",
-  "identifier": "org.lichess.broadcaster",
+  "identifier": "com.chess-online.broadcaster",
   "plugins": {
-    "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM1QTQ0Q0YwOTc2NDZDQjQKUldTMGJHU1g4RXlreFdCMnZXUnlZU2h5WUVEWGpyV3pENzNhVVZTSE1qbU5GQjBpZUtzaEJqS1UK",
-      "endpoints": [
-        "https://lichess-org.github.io/broadcaster/version.json?target={{target}}&arch={{arch}}&current_version={{current_version}}"
-      ]
-    }
   },
   "app": {
     "windows": [
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "Lichess Broadcaster",
+        "title": "Arena Broadcaster",
         "width": 1400,
         "height": 1200,
         "useHttpsScheme": true

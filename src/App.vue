@@ -49,7 +49,7 @@ requestNotificationPermission();
     <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
       <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
         <div class="flex h-16 shrink-0 items-center">
-          <img class="h-8" src="./assets/lichess-white.svg" alt="Lichess logo" />
+          <img class="h-8" src="./assets/logo-white.svg" alt="Arena logo" />
         </div>
         <nav class="flex flex-1 flex-col">
           <ul class="flex flex-1 flex-col gap-y-7">
@@ -90,7 +90,7 @@ requestNotificationPermission();
                     :to="{
                       name: 'broadcasts',
                       params: {
-                        username: u.username,
+                        userid: u.userid,
                         pageNum: 1,
                       },
                     }"
@@ -99,10 +99,10 @@ requestNotificationPermission();
                   >
                     <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-500">
                       <img
-                        v-if="user.username === 'broadcaster'"
-                        src="./assets/lichess-white.svg"
+                        v-if="user.userid === 'broadcaster'"
+                        src="./assets/logo-white.svg"
                         class="w-3 inline-block"
-                        alt="Lichess logo"
+                        alt="Arena logo"
                       />
                       <span v-else class="text-xs font-medium leading-none text-white">{{
                         u.label.substring(0, 1).toUpperCase()

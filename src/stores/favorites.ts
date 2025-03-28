@@ -1,19 +1,20 @@
 import { defineStore } from 'pinia';
 import { useUserStore } from './user';
 
-type SidebarUser = { label: string; username: string };
+type SidebarUser = { label: string; userid: string };
+type StateUser = { id: string, username: string };
 
 export const useFavoritesStore = defineStore('favorites', {
   state: () => ({
-    users: [] as string[],
+    users: [] as StateUser[],
   }),
   actions: {
-    add(user: string) {
-      if (this.users.includes(user)) return;
-      this.users.push(user);
+    add(userid: string, username: string) {
+      if (this.users.includes({id: userid, username})) return;  
+      this.users.push({ id: userid, username });
     },
-    remove(user: string) {
-      this.users = this.users.filter(u => u !== user);
+    remove(userid: string) {
+      this.users = this.users.filter(u => u.id !== userid);
     },
   },
   getters: {
@@ -21,12 +22,12 @@ export const useFavoritesStore = defineStore('favorites', {
       let users: SidebarUser[] = [];
 
       const user = useUserStore();
-      if (user.username) {
-        users.push({ label: user.username, username: user.username });
+      if (user.userid && user.username) {
+        users.push({ label: user.username, userid: user.userid });
       }
 
-      users.push({ label: 'Featured', username: 'broadcaster' });
-      users = users.concat(state.users.map(username => ({ label: username, username })));
+      users.push({ label: 'Featured', userid: 'broadcaster' });
+      users = users.concat(state.users.map(user => ({ label: user.username, userid: user.id })));
 
       return users;
     },

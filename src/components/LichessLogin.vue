@@ -15,8 +15,8 @@ async function login() {
 
 <template>
   <div class="text-center mt-20">
-    <h3 class="mt-2 text-xl font-semibold text-gray-200">Welcome to the Lichess Broadcaster app</h3>
-    <p class="mt-1 text-sm text-gray-300">Get started by logging in with your Lichess account.</p>
+    <h3 class="mt-2 text-xl font-semibold text-gray-200">Добро пожаловать в приложение Arena Broadcaster</h3>
+    <p class="mt-1 text-sm text-gray-300">Для начала войдите в свою учетную запись Chess-Online.</p>
     <div class="mt-6">
       <button
         type="button"
@@ -38,7 +38,7 @@ async function login() {
           />
         </svg>
 
-        Log in with Lichess
+        Войти с Chess-Online
       </button>
     </div>
   </div>

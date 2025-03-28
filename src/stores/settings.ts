@@ -4,7 +4,7 @@ import { ref } from 'vue';
 export const useSettingsStore = defineStore(
   'settings',
   () => {
-    const lichessUrl = ref<string>('https://lichess.org');
+    const lichessUrl = ref<string>('https://live.chess-online.com');
 
     const setLichessUrl = (url: string) => {
       lichessUrl.value = url.replace(/\/$/, '');

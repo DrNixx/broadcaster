@@ -70,7 +70,7 @@ async function openDevTools() {
     <div class="md:col-span-2">
       <p class="mb-2 text-sm leading-6 text-gray-400">
         Include broadcasts by other users in the app's sidebar. If you are a contributor to another user's broadcast,
-        you can add their username here.
+        you can add their userID here.
       </p>
       <AddUserToSidebar />
     </div>
